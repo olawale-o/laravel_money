@@ -55,4 +55,8 @@ class User extends Authenticatable
         'dob' => '1990-01-01',
         'pic_url' => 'profile.png',
     ];
+
+    public function transactions() {
+        return $this->hasMany(Transaction::class);
+    }
 }
