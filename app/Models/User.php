@@ -59,4 +59,8 @@ class User extends Authenticatable
     public function transactions() {
         return $this->hasMany(Transaction::class);
     }
+
+    public function account_types() {
+      return $this->belongsToMany(AccountType::class);
+    }
 }
