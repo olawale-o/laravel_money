@@ -42,4 +42,25 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * The model's default values for attributes.
+     *
+     * @var array
+     */
+    protected $attributes = [
+        'first_name' => 'no first name',
+        'last_name' => 'no last name',
+        'address' => 'no address',
+        'dob' => '1990-01-01',
+        'pic_url' => 'profile.png',
+    ];
+
+    public function transactions() {
+        return $this->hasMany(Transaction::class);
+    }
+
+    public function account_types() {
+      return $this->belongsToMany(AccountType::class);
+    }
 }
