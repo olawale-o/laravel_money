@@ -24,7 +24,47 @@ class CreateUserFormRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            "first_name" => "required",
+            "last_name" => "required",
+            "email" => "required|email|unique:users",
+            "password" => "required",
+            "password_confirmation" => "confirmed",
+        ];
+    }
+
+    /**
+     * Get the validation messages that apply to the request.
+     *
+     * @return array
+     */
+
+    public function messages()
+    {
+
+        return [
+            "first_name.required" => ":attribute is required",
+            "last_name.required" => ":attribute is required",
+            "email.required" => ":attribute  address is required",
+            "email.email" => ":attribute  address is not valid",
+            "email.unique" => ":attribute  already exist",
+            "password.required" => ":attribute is required",
+            "password_confirmation.confirmed" => ":attribute does match password",
+        ];
+    }
+
+    /**
+     * Get the validation attributes that apply to the request.
+     *
+     * @return array
+     */
+    public function attributes()
+    {
+        return [
+            "first_name" => "first name",
+            "last_name" => "last name",
+            "email" => "email address",
+            "password" => "password",
+            "password_confirmation" => "confirm password",
         ];
     }
 }
