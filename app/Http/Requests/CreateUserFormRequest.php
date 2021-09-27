@@ -13,7 +13,7 @@ class CreateUserFormRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -27,8 +27,7 @@ class CreateUserFormRequest extends FormRequest
             "first_name" => "required",
             "last_name" => "required",
             "email" => "required|email|unique:users",
-            "password" => "required",
-            "password_confirmation" => "confirmed",
+            "password" => "required|confirmed",
         ];
     }
 
@@ -44,11 +43,10 @@ class CreateUserFormRequest extends FormRequest
         return [
             "first_name.required" => ":attribute is required",
             "last_name.required" => ":attribute is required",
-            "email.required" => ":attribute  address is required",
+            "email.required" => ":attribute is required",
             "email.email" => ":attribute  address is not valid",
             "email.unique" => ":attribute  already exist",
             "password.required" => ":attribute is required",
-            "password_confirmation.confirmed" => ":attribute does match password",
         ];
     }
 
@@ -64,7 +62,6 @@ class CreateUserFormRequest extends FormRequest
             "last_name" => "last name",
             "email" => "email address",
             "password" => "password",
-            "password_confirmation" => "confirm password",
         ];
     }
 }
