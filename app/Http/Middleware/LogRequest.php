@@ -3,7 +3,10 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Log;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
+
 
 class LogRequest
 {
