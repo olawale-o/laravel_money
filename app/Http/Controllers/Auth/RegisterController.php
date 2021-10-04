@@ -139,6 +139,25 @@ class RegisterController extends Controller
             "email" => $request['email'],
             "password" => $request['password'],
             "remember_token" => $request['remember_token'],
+            "account_number" => $this->generate_account_no(),
         ]);
+    }
+
+    private function generate_account_no()
+    {
+      $account_no = mt_rand(1000000000, 9999999999);
+
+      if ($this->account_no_exist($account_no))
+      {
+        return generate_account_no();
+      }
+
+      return $account_no;
+
+    }
+
+    private function account_no_exist($number)
+    {
+      return $this->user->where('account_number', $number)->exists();
     }
 }
