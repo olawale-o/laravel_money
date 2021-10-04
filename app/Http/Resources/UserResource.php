@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
+use App\Http\Resources\AccountCollection;
 
 class UserResource extends JsonResource
 {
@@ -20,7 +21,8 @@ class UserResource extends JsonResource
             'email' => $this->email,
             'account_number' => $this->account_number,
             'pic_url' => $this->pic_url,
-            'isVerified' => $this->email_verified_at ? true : false
+            'isVerified' => $this->email_verified_at ? true : false,
+            'accounts' => new AccountCollection($this->account_types),
         ];
     }
 }
