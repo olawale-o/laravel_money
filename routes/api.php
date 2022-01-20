@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\AccountTypeController;
+use App\Http\Controllers\TransactionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,4 +26,5 @@ Route::group(['middleware' => ['cors']], function() {
   Route::post('register', [RegisterController::class, 'register']);
   Route::post('login', [LoginController::class, 'login']);
   Route::post('account', [AccountTypeController::class, 'create']);
+  Route::post('transfer', [TransactionController::class, 'transfer']);
 });
