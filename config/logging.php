@@ -17,7 +17,8 @@ return [
     |
     */
 
-    'default' => env('LOG_CHANNEL', 'stack'),
+    'default' => array_key_exists('LOG_CHANNEL', $_SERVER) ? $_SERVER['LOG_CHANNEL'] : env('LOG_CHANNEL', 'stack'),
+
 
     /*
     |--------------------------------------------------------------------------
