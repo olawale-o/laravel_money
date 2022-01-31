@@ -100,6 +100,21 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
+
+        'cloudwatch' => [
+          'driver' => 'custom',
+          'via' => \App\Logging\CloudWatchLoggerFactory::class,
+          'sdk' => [
+            'region' => array_key_exists('AWS_DEFAULT_REGION', $_SERVER) ? $_SERVER['AWS_DEFAULT_REGION'] : env('AWS_DEFAULT_REGION','us-east-1'),
+            'version' => 'latest',
+            'credentials' => [
+              'key' => array_key_exists('AWS_ACCESS_KEY_ID', $_SERVER) ? $_SERVER['AWS_ACCESS_KEY_ID'] : env('AWS_ACCESS_KEY_ID'),
+              'secret' => array_key_exists('AWS_SECRET_ACCESS_KEY', $_SERVER) ? $_SERVER['AWS_SECRET_ACCESS_KEY'] : env('AWS_SECRET_ACCESS_KEY'),
+            ],
+          ],
+          'retention' => env('CLOUDWATCH_LOG_RETENTION', 30),
+          'level' => env('CLOUDWATCH_LOG_LEVEL', 'error'),
+        ],
     ],
 
 ];
