@@ -67,4 +67,8 @@ class User extends Authenticatable
     public function beneficiaries() {
       return $this->hasMany(Beneficiary::class);
     }
+
+    public function kin() {
+      return $this->belongsTo(Kin::class);
+    }
 }
