@@ -15,9 +15,8 @@ class CreateBeneficiariesTable extends Migration
     {
         Schema::create('beneficiaries', function (Blueprint $table) {
             $table->id();
-            $table->string('first_name', 255)->nullable();
-            $table->string('last name', 255)->nullable();
-            $table->string('account_number', 255)->nullable()->unique();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->foreignId('benefactor_id');
             $table->timestamps();
         });
     }
