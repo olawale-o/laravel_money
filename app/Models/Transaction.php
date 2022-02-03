@@ -19,17 +19,21 @@ class Transaction extends Model
     protected $fillable = [
       'first_name',
       'last_name',
-      'bank_id',
-      'user_id',
-      'account_type_id',
       'transaction_id',
+      'sender_account_no',
+      'receiver_account_no',
       'previous_balance',
       'current_balance',
       'amount',
+      'charge',
       'description'
     ];
 
-    public function banks() {
-      return $this->hasMany(Banks::class);
+    public function sender() {
+      return $this->hasMany(Account::class, 'sender_account_no');
+    }
+
+    public function receiver() {
+      return $this->hasMany(Account::class, 'receiver_account_no');
     }
 }
