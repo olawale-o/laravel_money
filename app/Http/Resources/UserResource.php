@@ -19,10 +19,7 @@ class UserResource extends JsonResource
             'first_name' => $this->first_name,
             'last_name' => $this->last_name,
             'email' => $this->email,
-            'account_number' => $this->account_number,
-            'pic_url' => $this->pic_url,
             'isVerified' => $this->email_verified_at ? true : false,
-            'accounts' => new AccountCollection($this->account_types),
         ];
     }
 }

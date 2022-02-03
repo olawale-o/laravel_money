@@ -24,7 +24,6 @@ class User extends Authenticatable
         'email',
         'password',
         'remember_token',
-        'account_number'
     ];
 
     /**
@@ -54,9 +53,7 @@ class User extends Authenticatable
     protected $attributes = [
         'first_name' => 'no first name',
         'last_name' => 'no last name',
-        'address' => 'no address',
         'dob' => '1990-01-01',
-        'pic_url' => 'profile.png',
     ];
 
     public function transactions() {
