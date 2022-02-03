@@ -139,7 +139,6 @@ class RegisterController extends Controller
             "email" => $request['email'],
             "password" => $request['password'],
             "remember_token" => $request['remember_token'],
-            "account_number" => $this->generate_account_no(),
         ]);
     }
 
