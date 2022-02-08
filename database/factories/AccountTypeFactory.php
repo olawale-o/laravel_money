@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Bank;
+use App\Models\AccountType;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class BankFactory extends Factory
+class AccountTypeFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Bank::class;
+    protected $model = AccountType::class;
 
     /**
      * Define the model's default state.
@@ -22,9 +22,8 @@ class BankFactory extends Factory
     public function definition()
     {
         return [
-          'name' => $this->faker->name(),
           'slug' => $this->faker->name(),
-          'created_at' => date("Y-m-d H:i:s"),
+          'type' => $this->faker->name(),
         ];
     }
 }
