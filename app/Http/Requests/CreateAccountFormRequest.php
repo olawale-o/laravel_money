@@ -31,6 +31,9 @@ class CreateAccountFormRequest extends FormRequest
             "next_of_kin_first_name" => "required",
             "next_of_kin_last_name" => "required",
             "next_of_kin_phone_number" => "required",
+            "next_of_kin_email" => "required|email",
+            "nepa_bill" => "required|file|mimes:jpg,jpeg,png",
+            "signature" => "required|file|mimes:jpg,jpeg,png",
         ];
     }
 
@@ -55,6 +58,11 @@ class CreateAccountFormRequest extends FormRequest
             "next_of_kin_first_name.required" => ":attribute is required",
             "next_of_kin_last_name.required" => ":attribute is required",
             "next_of_kin_phone_number.required" => ":attribute is required",
+            "next_of_kin_email.required" => ":attribute is required",
+            "nepa_bill" => ":attribute is required",
+            "nepab_bill.mimes" => ":attribute must be a file of type: jpg, jpeg, png",
+            "signature" => ":attribute is required",
+            "signature.mimes" => ":attribute must be a file of type: jpg, jpeg, png",
         ];
     }
 
@@ -73,6 +81,9 @@ class CreateAccountFormRequest extends FormRequest
             "next_of_kin_first_name" => "next of kin first name",
             "next_of_kin_last_name" => "next of kin last name",
             "next_of_kin_phone_number" => "next of kin phone number",
+            "next_of_kin_email" => "next of kin email",
+            "nepa_bill" => "Nepa bill",
+            "signature" => "signature",
         ];
     }
 }
