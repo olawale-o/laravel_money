@@ -25,7 +25,6 @@ class CreateAccountFormRequest extends FormRequest
     {
         return [
             "account_type_id" => "required|exists:account_types,id",
-            "user_id" => "required|exists:users,id",
             "bank_id" => "required|exists:banks,id",
             "balance" => "required|numeric",
             "next_of_kin_first_name" => "required",
@@ -48,10 +47,8 @@ class CreateAccountFormRequest extends FormRequest
 
         return [
             "account_type_id.required" => ":attribute is required",
-            "user_id.required" => ":attribute is required",
             "bank_id.required" => ":attribute is required",
             "account_type_id.exists" => "Please select :attribute from available ones",
-            "user_id.exists" => "Please verify :attribute is registered",
             "bank_id.exists" => "Please verify :attribute from available ones",
             "balance.required" => ":attribute is required",
             "balance.numeric" => ":attribute must be numeric",
@@ -60,7 +57,7 @@ class CreateAccountFormRequest extends FormRequest
             "next_of_kin_phone_number.required" => ":attribute is required",
             "next_of_kin_email.required" => ":attribute is required",
             "nepa_bill" => ":attribute is required",
-            "nepab_bill.mimes" => ":attribute must be a file of type: jpg, jpeg, png",
+            "nepa_bill.mimes" => ":attribute must be a file of type: jpg, jpeg, png",
             "signature" => ":attribute is required",
             "signature.mimes" => ":attribute must be a file of type: jpg, jpeg, png",
         ];
@@ -75,7 +72,6 @@ class CreateAccountFormRequest extends FormRequest
     {
         return [
             "account_type_id" => "account",
-            "user_id" => "user",
             "bank_id" => "bank",
             "balance" => "balance",
             "next_of_kin_first_name" => "next of kin first name",
