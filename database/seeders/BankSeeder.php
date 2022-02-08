@@ -34,7 +34,7 @@ class BankSeeder extends Seeder
 
     public function run()
     {
-        $bs = Bank::factory()->count(3)->state(new Sequence(
+        $bs = Bank::factory()->count(count($this->banks))->state(new Sequence(
           fn ($sequence) => [
             "name" => $this->banks[$sequence->index]["name"],
             "slug" => $this->banks[$sequence->index]["slug"]
