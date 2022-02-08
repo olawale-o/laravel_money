@@ -9,8 +9,21 @@ class Account extends Model
 {
     use HasFactory;
 
+      /**
+     * The attributes that are mass assignable.
+     *
+     * @var string[]
+     */
+    protected $fillable = [
+      'account_type_id',
+      'bank_id',
+      'user_id',
+      'balance',
+      'account_no',
+    ];
+
     public function user() {
-      return $this->belongsTo(User::class);
+      return $this->belongsTo('App\Models\Account');
     }
 
     public function transactions() {
@@ -23,5 +36,13 @@ class Account extends Model
 
     public function accountType() {
       return $this->belongsTo(AccountType::class);
+    }
+
+    public function kin() {
+      return $this->hasMany('App\Models\Kin');
+    }
+
+    public function images() {
+      return $this->morphMany('App\Models\Image', 'imageable');
     }
 }

@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Kin extends Model
+class Image extends Model
 {
     use HasFactory;
 
-    protected $table = 'kins';
+    public $timestamps = false;
 
      /**
      * The attributes that are mass assignable.
@@ -17,14 +17,14 @@ class Kin extends Model
      * @var string[]
      */
     protected $fillable = [
-      'first_name',
-      'last_name',
-      'email',
-      'user_id',
+      'imageable_id',
+      'imageable_type',
+      'path',
+      'name',
+      'created_at',
     ];
 
-    public function account()
-    {
-      return $this->belongsTo('App\Models\Account');
+    public function imageable() {
+      return $this->morphTo();
     }
 }

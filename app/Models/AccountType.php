@@ -9,6 +9,8 @@ class AccountType extends Model
 {
     use HasFactory;
 
+    public $timestamps = false;
+
     public function accounts() {
       return $this->hasMany(Account::class);
     }

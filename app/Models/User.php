@@ -57,18 +57,14 @@ class User extends Authenticatable
     ];
 
     public function transactions() {
-        return $this->hasMany(Transaction::class);
+        return $this->hasMany('App\Models\Transaction');
     }
 
     public function accounts() {
-      return $this->hasMany(Account::class);
+      return $this->hasMany('App\Models\Account');
     }
 
     public function beneficiaries() {
-      return $this->hasMany(Beneficiary::class);
-    }
-
-    public function kin() {
-      return $this->belongsTo(Kin::class);
+      return $this->hasMany('App\Models\Beneficiary');
     }
 }
