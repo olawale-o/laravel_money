@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Requests\CreateAccountFormRequest;
+use App\Http\Requests\SavingsAccountFormRequest;
 use App\Models\Account;
 use App\Models\kin;
 use App\Models\Image;
@@ -20,7 +20,7 @@ class AccountController extends Controller
      $this->request = $request;
    }
     //
-    public function create(CreateAccountFormRequest $request)
+    public function create(SavingsAccountFormRequest $request)
     {
         $validate = $request->validated();
       try {
